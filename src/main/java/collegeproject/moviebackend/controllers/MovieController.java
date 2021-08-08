@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MovieController {
 
     @Autowired
@@ -20,10 +22,10 @@ public class MovieController {
 
 
     @GetMapping("/movies")
-
+    @CrossOrigin(origins="http://localhost:3000")
     public ResponseEntity getMovies(){
 
-        var customizedResponse=new CustomizedResponse(" A list of movies", service.getMovies());
+        var customizedResponse=new CustomizedResponse("A list of movies", service.getMovies());
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 
@@ -32,7 +34,7 @@ public class MovieController {
 
         CustomizedResponse customizedResponse= null;
         try {
-            customizedResponse = new CustomizedResponse(" Movie with id " + id, Collections.singletonList(service.getMovieById(id)));
+            customizedResponse = new CustomizedResponse("Movie with id " + id, Collections.singletonList(service.getMovieById(id)));
         } catch (Exception e) {
             customizedResponse = new CustomizedResponse(e.getMessage(), null);
             return new ResponseEntity(customizedResponse, HttpStatus.NOT_FOUND);

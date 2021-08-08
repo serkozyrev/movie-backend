@@ -27,11 +27,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //allows us to configure authorization
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.csrf().disable().cors().and().authorizeRequests()
                 .antMatchers("/users/**").permitAll()
                 .antMatchers("/auth").permitAll()
                 .antMatchers("/movies/**").permitAll()
                 .antMatchers("/shows/**").permitAll()
+                .antMatchers("/shows").permitAll()
+                .antMatchers("/shows.json").permitAll()
                 .antMatchers("/featured-movies").permitAll()
                 .antMatchers("/featured-shows").permitAll()
                 .antMatchers("/slider").permitAll()
