@@ -2,7 +2,6 @@ package collegeproject.moviebackend.services;
 
 
 
-import collegeproject.moviebackend.models.Movie;
 import collegeproject.moviebackend.models.Show;
 import collegeproject.moviebackend.models.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
