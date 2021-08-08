@@ -13,7 +13,7 @@ import java.util.*;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+
 public class MovieController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class MovieController {
 
 
     @GetMapping("/movies")
-    @CrossOrigin(origins="http://localhost:3000")
+
     public ResponseEntity getMovies(){
 
         var customizedResponse=new CustomizedResponse("A list of movies", service.getMovies());
