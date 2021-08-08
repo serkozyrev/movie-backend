@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.Query;
 public interface UserRepository extends MongoRepository<UserModel, String> {
 
 
-    UserModel findByUserName(String username);
+    UserModel findByUsername(String username);
 }

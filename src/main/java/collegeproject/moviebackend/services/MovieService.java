@@ -25,10 +25,13 @@ public class MovieService {
 
     }
 
-    public Optional<Movie> getMovieById(String id) throws Exception{
-        Optional<Movie> movie = repository.findById(id);
+    public List<Movie> getMovieById(String id) throws Exception{
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        List<Movie> movie = mongoTemplate.find(query, Movie.class);
+        //Optional<Movie> movie = repository.findById(id);
 
-        if(!movie.isPresent()){
+        if(movie.isEmpty()){
             throw new Exception(("Movie with " + id + " is not found"));
         }
         return movie;

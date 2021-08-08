@@ -10,7 +10,7 @@ public class UserModel {
     private String firstName;
     private String lastName;
     private String email;
-    private String userName;
+    private String username;
     private String password;
     private String role;
 
@@ -25,7 +25,7 @@ public class UserModel {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.userName = username;
+        this.username = username;
         this.password = password;
         this.role = "user";
     }
@@ -63,11 +63,11 @@ public class UserModel {
     }
 
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.userName = username;
+        this.username = username;
     }
 
     public String getPassword() {

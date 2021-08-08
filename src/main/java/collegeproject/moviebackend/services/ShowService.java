@@ -29,10 +29,13 @@ public class ShowService {
         repository.insert(show);
     }
 
-    public Optional<Show> getShowById(String id) throws Exception{
-        Optional<Show> show=repository.findById(id);
+    public List<Show> getShowById(String id) throws Exception{
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        List<Show> show = mongoTemplate.find(query, Show.class);
+        //Optional<Show> show=repository.findById(id);
 
-        if(!show.isPresent()){
+        if(show.isEmpty()){
             throw new Exception(("Show with " + id + " is not found"));
         }
 
@@ -41,9 +44,9 @@ public class ShowService {
 
     public List<Show> getShowByTitle(String name){
 
-        Query query = new Query();
-        query.addCriteria(Criteria.where("title").is(name));
-        List<Show> shows = mongoTemplate.find(query, Show.class);
+
+
+        List<Show> shows=repository.findByTitleContainingIgnoreCase(name);
 
         return shows;
     }
