@@ -30,7 +30,7 @@ public class AuthController {
             return new ResponseEntity( response, HttpStatus.OK);
         } catch (BadCredentialsException ex){
 
-            var response = new CustomizedResponse( "You username/password were entered incorrectly..", null);
+            var response = new CustomizedResponse( "You username or password were entered incorrectly..", null);
 
             return new ResponseEntity( response, HttpStatus.UNAUTHORIZED);
         }
