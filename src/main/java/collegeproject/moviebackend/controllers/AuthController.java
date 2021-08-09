@@ -25,7 +25,7 @@ public class AuthController {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-            var response = new CustomizedResponse( "You login Successfully", null);
+            var response = new CustomizedResponse("You login Successfully", null);
 
             return new ResponseEntity( response, HttpStatus.OK);
         } catch (BadCredentialsException ex){
