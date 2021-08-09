@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //allows us to configure authorization
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().cors().and().authorizeRequests()
+        http.csrf().and().cors().disable().authorizeRequests()
                 .antMatchers("/users/**").permitAll()
                 .antMatchers("/auth").permitAll()
                 .antMatchers("/movies/**").permitAll()
