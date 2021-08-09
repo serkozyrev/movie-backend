@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/users/**").permitAll()
-                .antMatchers("/auth").permitAll()
+                .antMatchers("/auth/**").permitAll()
                 .antMatchers("/movies/**").permitAll()
                 .antMatchers("/shows/**").permitAll()
                 .antMatchers("/shows").permitAll()

@@ -32,7 +32,7 @@ public class AuthController {
 
             var response = new CustomizedResponse( "You username or password were entered incorrectly..", null);
 
-            return new ResponseEntity( response, HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity( response, HttpStatus.OK);
         }
 
     }
