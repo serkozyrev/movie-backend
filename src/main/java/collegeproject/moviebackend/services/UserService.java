@@ -34,17 +34,16 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public Optional<UserModel> getAUser(String id)
+    public UserModel getAUser(String username)
     {
-        return userRepository.findById(id);
+        return userRepository.findByUsername(username);
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserModel foundUser= userRepository.findByUsername(username);
-
         String userN=foundUser.getUsername();
         String password= foundUser.getPassword();
 
-        return new User(userN, password,  new ArrayList<>());
+        return new User(userN, password, new ArrayList<>());
     }
 }

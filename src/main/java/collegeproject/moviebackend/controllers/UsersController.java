@@ -24,11 +24,11 @@ public class UsersController {
         return new ResponseEntity( response, HttpStatus.OK);
     }
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity getAUsers(@PathVariable("id") String id)
+    @GetMapping("/users/{username}")
+    public ResponseEntity getAUsers(@PathVariable("username") String username)
     {
 
-        var response = new CustomizedResponse( " User with id  : " + id, Collections.singletonList(userService.getAUser(id)));
+        var response = new CustomizedResponse( " User with id  : " + username, Collections.singletonList(userService.getAUser(username)));
 
         return new ResponseEntity( response, HttpStatus.OK);
 

@@ -30,7 +30,7 @@ public class UserModel {
         this.role = "user";
     }
 
-    public String getId() {
+    public String getUserId() {
         return id;
     }
 
