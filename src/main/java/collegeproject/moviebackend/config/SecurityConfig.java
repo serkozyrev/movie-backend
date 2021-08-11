@@ -33,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/movies/**").permitAll()
                 .antMatchers("/shows/**").permitAll()
                 .antMatchers("/shows").permitAll()
-                .antMatchers("/shows.json").permitAll()
                 .antMatchers("/featured-movies").permitAll()
                 .antMatchers("/featured-shows").permitAll()
                 .antMatchers("/slider").permitAll()
